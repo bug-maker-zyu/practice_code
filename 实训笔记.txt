@@ -1,0 +1,126 @@
+﻿ 陈
+ 手机:18007328601
+
+			
+如何构造窗体：
+  1.编写一个类继承JFrame
+    在调用方法中调用JFrame的相关方法设置窗体属性(窗体大小，位置等。)
+
+
+常用的Swing组件
+  1. JButton 按钮组件
+  2. JLable 标签组件，用于显示文本信息或图标 
+  3. JTextField 单行文本框 
+        常用方法:   getText();获得文本框中输入的文本
+				    setText(String s);将参数s的值设置到文本框中
+  4. JPassWordFiled 密码框 
+       常用方法:   getText();获得文本框中输入的文本
+				    setText(String s);将参数s的值设置到文本框中
+    
+  		
+  5 JOptionPane.showMessageDialog(null,"提示信息") 弹出确认对话框  
+  6.JTable 表格组件，构造方法有多种形式
+	Jtable(Object[][] rowData,Object columnName); rowData表示表格中的数据
+												  columnName表示表格的列标题
+		JTable常用方法
+		   1.getSelectedRow() 获得选中的行索引，未选中行返回-1
+		   2.getValueAt(int rowIndex,int colIndex) 返回表格中的单元格数据
+		   
+
+	
+	JTable必需放在带滚动条的面板
+	  如:JScrollPane jsp = new JScrollPane(传入表格对象);
+  
+布局管理器：确定组件如何摆放
+	窗体(顶级容器)的默认布局管理器是边界布局
+	边界布局(BorderLayOut):将容器划分成东西南北中五个区域，每个区域只能摆放一个组件
+		将组件添加到容器时，必需在add方法的第二个参数上指定摆放位置(由BorderLayOut的常量CENTER,NORTH,WEST,SOUTH,EAST指定)
+		  未给第一个参数时，则摆在中间位置，并且会将组件拉申至最大
+	    在边界布局的某个方向上要摆放多个组件，必需提供中间容器，将组件加到中间容器中，再将该中间容器加到边界布局的容器中
+
+中间容器:
+    JPanel 面板
+	JScrollPane 带滚动条的面版本
+
+事件监听器：在界面中操作组件，对用户的操作做出响应
+  对应用户在界面的操作做响应：
+   1.在界面类上实现   ActionListener接口  
+      public class 类名  extends JFrame implements ActionListener{
+	  
+	  
+	  }
+	2.实现接口中的方法 ActionListener接口中定义了actionPerformed方法
+	
+	3.哪一个组件要对用户的操作做出响应，
+	   就调用组件对象的 addActionLitener(this);方法
+	  如: jbOk.addActionLitener(this);
+
+
+
+安装MySql :
+  安装完毕后有默认的root用户，密码是安装时指定的.
+  可以用 Navicat Premium工具连接MYSql数据库
+	需要新建连接:
+	   
+	新建数据库(create database 数据库)：注：数据库的字符集要用UTF-8 Unicode（避免中文乱码）
+	
+    执行SQL语句(需要在Navicat新建查询,在查询窗口中编号SQL并执行):建表，insert,update,delete select等
+		
+  
+MySQL : 
+  建表语句:
+    create table 表名(
+		列名   数据类型 [约束],
+		.....
+	)
+	
+  如建用户表: 用户名包含,用户编号，登录用户名，密码，姓名，性别,注册日期。
+    create table tbl_user(
+	   id  varchar(40) primary key,
+	   loginName varchar(30) not null,
+	   loginPwd  varchar(32) not null,
+	   name  varchar(30) ,
+	   sex  varchar(4),
+	   regDate datetime
+	);
+  
+   插入语句
+     insert into 表名(列名1,列名2...)  values(列值1,列值2.。。);
+	   如果列对应的数据类型为字符串类型，必需用单引号把列值包含起来
+	
+    如: 
+		insert into tbl_user (id,loginName,loginPwd,regDate) values('1','admin','123456',now());
+	   
+   查询语句:
+      select *  from 表名 [where 条件];
+	
+	 根据用户名和密码查询tbl_user表中的数据
+	   select *  from tbl_user where loginName='admin' and loginPwd='123456';
+	
+	更新语句
+	   update 表名  set 列名=列值[,列名1=列值1..] [where 条件]
+	
+	 更新编号为1的用户姓名为张三
+	   update tbl_user set name='张三' where id='1';
+	  更新编号为2的用户姓名为李四，性别为男
+     	update tbl_user set name='李四',sex='男' where id='2';  
+    
+	删除语句:
+	    delete from 表名 [where 条件 ];
+	如：删除编号为1的用户信息
+	    delete from tbl_user where id='1';
+
+数据类型：
+  varchar(n)  字符串类型,n表示长度 
+  datetime    日期时间类型 (包含年月日时分秒) 
+  numeric     数值型.
+数据库表的完整性约束
+  主键(primary key)，非空(not null)，检查，唯一等、、、、
+  
+  
+  
+JDBC：
+  1.连接MYsql数据，必需在项目中导入 Mysql的数据库驱动(mysql-connector-java-5.0.8-bin.jar)
+     把驱动包粘贴到eclipse项目目录下，在驱动包上点右键 -->build path-> add to buildpath
+	 
+  

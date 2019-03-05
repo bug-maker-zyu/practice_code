@@ -10,4 +10,3 @@ class Test {
 		//edited by wzy from vscode
 	}
 }
-
