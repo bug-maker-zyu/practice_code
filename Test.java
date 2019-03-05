@@ -5,6 +5,9 @@ class Test {
 
 		System.out.println("hello git");
 		//edited by wzy from vscode
+
+		System.out.println("hello java");
+		//edited by wzy from vscode
 	}
 }
 
