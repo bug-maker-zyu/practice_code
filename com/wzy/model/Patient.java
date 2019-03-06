@@ -1,4 +1,4 @@
-package com.wzy.view;
+package com.wzy.model;
 
 public class Patient {
 	

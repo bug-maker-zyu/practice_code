@@ -14,23 +14,24 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
+import com.wzy.model.Patient;
+
 public class TestDialog extends JDialog implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
 		new addDialog(this);
 	}
 	
-	JButton addBt = new JButton("����");
-	JButton alterBt = new JButton("�޸�");
-	JButton delBt = new JButton("ɾ��");
+	JButton addBt = new JButton("增加");
+	JButton alterBt = new JButton("修改");
+	JButton delBt = new JButton("删除");
 	
 	List<Patient> list = new LinkedList<Patient>();
 	
 	Object[][] rowDatas;	
 	Object[] colNames = new Object[] {
-		"���", "����", "֢״"	
+		"编号", "姓名","症状"	
 	};
 	
 	
@@ -52,10 +53,10 @@ public class TestDialog extends JDialog implements ActionListener{
 	 * 
 	 */
 	public TestDialog() {
-		// TODO Auto-generated constructor stub
-		list.add(new Patient("1", "����Ȫһ��", "����"));
-		list.add(new Patient("2", "����Ȫ����", "�Բ�"));
-		list.add(new Patient("3", "����Ȫ����", "����ɭ"));
+
+		list.add(new Patient("1", "test", "test"));
+		list.add(new Patient("2", "test", "test"));
+		list.add(new Patient("3", "test", "test"));
 		
 		updateDatas();
 		

@@ -3,27 +3,30 @@ package com.wzy.view;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import com.wzy.model.Patient;
+
 public class addDialog extends JDialog {
 	
+	private static final long serialVersionUID = 1L;
+
 	TestDialog dialog;
 	
-	JLabel numLabel = new JLabel("编号");
-	JLabel nameLabel = new JLabel("姓名");
-	JLabel symLabel = new JLabel("症状");
+	JLabel numLabel = new JLabel("缂栧彿");
+	JLabel nameLabel = new JLabel("濮撳悕");
+	JLabel symLabel = new JLabel("鐥囩姸");
 	
 	JTextField numField = new JTextField();
 	JTextField nameField = new JTextField();
 	JTextField symField = new JTextField();
 	
-	JButton okButton = new JButton("确定");
-	JButton cancelButton = new JButton("取消");
+	JButton okButton = new JButton("纭畾");
+	JButton cancelButton = new JButton("鍙栨秷");
 	
 	public addDialog(TestDialog dialog) {
 		
