@@ -1,3 +1,5 @@
+package com.wzy;
+
 import com.wzy.view.LoginFrame;
 
 /**
